@@ -40,20 +40,25 @@ const App = () => {
 
   return (
     <div className="App">
-      <h1>Hi!</h1>
-      <form onSubmit={ getQuery } className="search-form">
-        <input value={ query } name="query" onChange={ onChangeSearchInput } className="search-input"/>
+        {/*<h1>React Recipe Search App</h1>*/}
+
+        <form onSubmit={ getQuery } className="search-form">
+
+          <input value={ query } name="query" onChange={ onChangeSearchInput } placeholder="Search for a recipe" className="search-input"/>
         <button type="submit" className="search-button">Search</button>
       </form>
         <br />
-        { recipes.map(recipe => (
-            <Recipes
-                key={ recipe.recipe.label }
-                title={ recipe.recipe.label }
-                ingredients={ recipe.recipe.ingredientLines }
-                calories={ recipe.recipe.calories }
-                image={ recipe.recipe.image } />
-        )) }
+        <div className="recipes-list">
+            { recipes.map(recipe => (
+                <Recipes
+                    key={ recipe.recipe.label }
+                    title={ recipe.recipe.label }
+                    ingredients={ recipe.recipe.ingredients }
+                    calories={ recipe.recipe.calories }
+                    image={ recipe.recipe.image } />
+            )) }
+        </div>
+
     </div>
   );
 };
